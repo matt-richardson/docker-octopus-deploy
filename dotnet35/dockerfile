@@ -1,0 +1,7 @@
+
+# from https://webcache.googleusercontent.com/search?q=cache:n7U7YovSf80J:https://msdn.microsoft.com/en-us/virtualization/windowscontainers/examples/dotnet35+&cd=2&hl=en&ct=clnk&gl=uk
+# which is apparently at https://github.com/Microsoft/Virtualization-Documentation/blob/live/virtualization/windowscontainers/Examples/dotnet35.md
+
+FROM windowsservercore
+ADD source /sxs
+RUN powershell -Command "& {Add-WindowsFeature -Name NET-Framework-Core -Source c:\sxs}"
