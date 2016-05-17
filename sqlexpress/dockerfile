@@ -73,7 +73,7 @@ RUN powershell wget http://download.microsoft.com/download/E/A/E/EAE6F7FC-767A-4
       -OutFile sqlexpr_x64_enu.exe \
   && /install/sqlexpr_x64_enu.exe /q /x:/install/setup \
   && /install/setup/setup.exe /q /ACTION=Install /INSTANCENAME=%sqlinstance% /FEATURES=SQLEngine /UPDATEENABLED=1 \
-      /SECURITYMODE=SQL /SAPWD=sqlsapassword /SQLSVCACCOUNT="NT AUTHORITY\System"  /SQLSYSADMINACCOUNTS="BUILTIN\ADMINISTRATORS" \
+      /SECURITYMODE=SQL /SAPWD=%sqlsapassword% /SQLSVCACCOUNT="NT AUTHORITY\System"  /SQLSYSADMINACCOUNTS="BUILTIN\ADMINISTRATORS" \
       /INSTALLSQLDATADIR=%sqldata% /SQLUSERDBLOGDIR=%sqldata% /SQLBACKUPDIR=%sqlbackup% \
       /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS \
   && powershell ./Set-SqlExpressStaticTcpPort %sqlinstance% \
